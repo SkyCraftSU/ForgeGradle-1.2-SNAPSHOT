@@ -51,16 +51,7 @@ jobs:
           b.write_text(t)
           # Preserve upstream license/attribution and document 1.7.10 scope.
           r=Path('README.md')
-          r.write_text('''# SkyCraft ForgeGradle 1.2 for Minecraft 1.7.10
-
-Restored from the official [MinecraftForge/ForgeGradle](https://github.com/MinecraftForge/ForgeGradle) `FG_1.2` branch.
-
-The original ForgeGradle API, MCP processing, and reobfuscation logic are retained. This fork changes the old Minecraft 1.7.10 download URLs to Mojang's versioned HTTPS endpoints. **The download URLs are intentionally pinned to Minecraft 1.7.10**: other Minecraft versions are unsupported by this initial patch.
-
-Upstream license: LGPL-2.1 (see [LICENSE](LICENSE)).
-
-**Validation status:** source import is automated. The plugin build and complete ImmersiveEngineering 0.7.7 client/server Gradle builds require separate testing.
-''')
+          r.write_text("# SkyCraft ForgeGradle 1.2 for Minecraft 1.7.10\\n\\nRestored from the official MinecraftForge/ForgeGradle FG_1.2 branch (LGPL-2.1).\\n\\nThe ForgeGradle API, MCP and reobfuscation logic are preserved. Legacy Minecraft download addresses are pinned to Mojang HTTPS for Minecraft 1.7.10. Other Minecraft versions are not supported by this initial patch.\\n\\nBuild and runtime validation are still required.\\n")
           PY
           git add -A
           if ! git diff --cached --quiet; then
