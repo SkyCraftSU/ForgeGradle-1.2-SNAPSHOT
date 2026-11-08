@@ -21,11 +21,7 @@ jobs:
         run: |
           set -euo pipefail
           git clone --depth 1 --branch FG_1.2 https://github.com/MinecraftForge/ForgeGradle.git /tmp/forgegradle-upstream
-          cp -a /tmp/forgegradle-upstream/. .
-          rm -rf .github/workflows
-          mkdir -p .github/workflows
-          # Preserve the restoration workflow on the destination branch.
-          git show HEAD:.github/workflows/restore-upstream.yml > .github/workflows/restore-upstream.yml
+          rsync -a --exclude='.git/' --exclude='.github/workflows/' /tmp/forgegradle-upstream/ ./
           rm -rf /tmp/forgegradle-upstream
           python3 - <<'PY'
           from pathlib import Path
