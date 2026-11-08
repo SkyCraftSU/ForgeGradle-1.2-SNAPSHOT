@@ -19,7 +19,7 @@ project.ext {
 }
 
 group = 'net.minecraftforge.gradle'
-version = "${project.ext.GIT_INFO.tag}.${project.ext.GIT_INFO.offset}"
+version = '1.2-skycraft.1'
 archivesBaseName = 'ForgeGradle'
 targetCompatibility = '1.6'
 sourceCompatibility = '1.6'
@@ -245,7 +245,12 @@ def gitInfo(dir) {
                 abbreviatedId: '00000000'
         ]
     }
-    def desc = git.describe().setLong(true).setTags(true).call().rsplit('-', 2)
+    def description = git.describe().setLong(true).setTags(true).call()
+    if (description == null) {
+        return [tag: '1.2', offset: '0', hash: 'untagged', branch: 'main',
+                commit: git.repository.resolve('HEAD')?.name() ?: '00000000', abbreviatedId: 'untagged']
+    }
+    def desc = description.rsplit('-', 2)
     def head = git.repository.exactRef('HEAD')
     def longBranch = head.symbolic ? head?.target?.name : null // matches Repository.getFullBranch() but returning null when on a detached HEAD
 
