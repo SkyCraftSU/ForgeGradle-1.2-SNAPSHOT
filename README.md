@@ -1,1 +1,1 @@
-# ForgeGradle-1.2-SNAPSHOT
+# SkyCraft ForgeGradle 1.2 for Minecraft 1.7.10\n\nRestored from the official MinecraftForge/ForgeGradle FG_1.2 branch (LGPL-2.1).\n\nThe ForgeGradle API, MCP and reobfuscation logic are preserved. Legacy Minecraft download addresses are pinned to Mojang HTTPS for Minecraft 1.7.10. Other Minecraft versions are not supported by this initial patch.\n\nBuild and runtime validation are still required.\n
