@@ -1,6 +1,9 @@
 name: Archive Gradle 2.6 distribution
 
 on:
+  push:
+    paths:
+      - '.github/workflows/archive-gradle-2.6.yml'
   workflow_dispatch:
 
 permissions:
